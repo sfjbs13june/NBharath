@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bharath.app</groupId>
-	<artifactId>first-microservice</artifactId>
+	<artifactId>bharath-microservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>first-microservice</name>
+	<name>bharath-microservice</name>
 	<description>This is the first microservice</description>
 	<properties>
 		<java.version>11</java.version>
