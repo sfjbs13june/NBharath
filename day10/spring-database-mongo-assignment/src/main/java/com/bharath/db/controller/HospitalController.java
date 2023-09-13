@@ -52,7 +52,7 @@ public class HospitalController {
         if(list.size()<1) return "Hospital Records are Empty";
         for (Hospital hp: list){
              if(hp.getHospitalName().equals(name)) {
-                 hospitalRepository.deleteById(Integer.parseInt(hp.getHospitalId()));
+                 hospitalRepository.delete(hp);
                  return "Hospital " + hp.getHospitalName() + " Deleted";
              }
         }

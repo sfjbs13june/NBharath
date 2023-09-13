@@ -47,7 +47,7 @@ public class PatientController {
         if(list.size()<1) return "Patient Records are Empty";
         for (Patient hp: list){
             if(hp.getPatientName().equals(name)) {
-                patientRepository.deleteById(hp.getPatientId());
+                patientRepository.delete(hp);
                 return "Patient " + hp.getPatientName() + " Deleted";
             }
         }

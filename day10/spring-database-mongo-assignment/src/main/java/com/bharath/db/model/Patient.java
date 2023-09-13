@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 public class Patient {
 
     @Id
-    private Integer patientId;
+    private String patientId;
 
     private String patientName;
 
@@ -16,18 +16,18 @@ public class Patient {
 
     public Patient() {}
 
-    public Patient(Integer patientId, String patientName, String hospitalName, String disease) {
+    public Patient(String patientId, String patientName, String hospitalName, String disease) {
         this.patientId = patientId;
         this.patientName = patientName;
         this.hospitalName = hospitalName;
         this.disease = disease;
     }
 
-    public Integer getPatientId() {
+    public String getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(Integer patientId) {
+    public void setPatientId(String patientId) {
         this.patientId = patientId;
     }
 
