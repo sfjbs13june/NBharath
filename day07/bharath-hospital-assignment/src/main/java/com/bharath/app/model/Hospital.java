@@ -1,9 +1,9 @@
 package com.bharath.app.model;
 
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
+@Component
 public class Hospital {
 
     String hospitalName;

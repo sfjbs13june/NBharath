@@ -1,23 +1,35 @@
-package com.bharath.app.model;
+package com.bharath.db.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
-import org.springframework.stereotype.Component;
-
-@Component
+@Entity
 public class Patient {
 
-    String patientName;
-    String patientId;
-    String hospitalName;
-    String disease;
+    @Id
+    @GeneratedValue
+    @Column(name = "patientId")
+    private Integer patientId;
+
+    @Column(name = "patientName")
+    private String patientName;
+
+    @Column(name = "hospitalName")
+    private String hospitalName;
+
+    @Column(name = "disease")
+    private String disease;
 
     public Patient() {}
 
-    public Patient(String patientName,String patientId, String hospitalName, String disease) {
-        this.patientName = patientName;
+    public Integer getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(Integer patientId) {
         this.patientId = patientId;
-        this.hospitalName = hospitalName;
-        this.disease = disease;
     }
 
     public String getPatientName() {
@@ -26,14 +38,6 @@ public class Patient {
 
     public void setPatientName(String patientName) {
         this.patientName = patientName;
-    }
-
-    public String getPatientId() {
-        return patientId;
-    }
-
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
     }
 
     public String getHospitalName() {
