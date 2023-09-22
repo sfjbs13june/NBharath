@@ -15,7 +15,7 @@ public class PrescriptionController {
     @Autowired
     PrescriptionRepository prescriptionRepository;
 
-    @GetMapping("/getprescription")
+    @GetMapping("/viewprescription")
     public @ResponseBody Object getAllPrescriptions(@RequestParam final String patientName) {
         List<Prescription> prescriptionList = prescriptionRepository.findAll();
         List<Prescription> requiredPrescriptions = new ArrayList<>();
@@ -24,7 +24,7 @@ public class PrescriptionController {
                 requiredPrescriptions.add(prescription);
             }
         }
-        return requiredPrescriptions.size()>0?prescriptionList:"No Prescriptions Found";
+        return requiredPrescriptions.size()>0?requiredPrescriptions:"No Prescriptions Found";
     }
 
     @PostMapping("/saveprescription")

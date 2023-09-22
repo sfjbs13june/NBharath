@@ -9,13 +9,17 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
-public class DoctorConfig extends WebSecurityConfigurerAdapter {
+public class ControllerConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.httpBasic().and().authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/doctor/doctorappointment").hasAnyRole("DOCTOR")
                 .antMatchers(HttpMethod.POST,"/doctor/save").hasAnyRole("DOCTOR")
+                .antMatchers(HttpMethod.GET,"/prescription/viewprescription").hasAnyRole("DOCTOR","PATIENT")
+                .antMatchers(HttpMethod.POST,"/prescription/saveprescription").hasAnyRole("DOCTOR","PATIENT")
+                .antMatchers(HttpMethod.GET,"/patient/myappointment").hasAnyRole("PATIENT")
+                .antMatchers(HttpMethod.POST,"/patient/save").hasAnyRole("PATIENT")
                 .and().csrf().disable().headers()
                 .frameOptions().disable();
     }
@@ -23,6 +27,7 @@ public class DoctorConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("doctor12").password("{noop}doctor'spassword").roles("DOCTOR");
+                .withUser("doctor12").password("{noop}doctor'spassword").roles("DOCTOR").and()
+                .withUser("patient12").password("{noop}patient'spassword").roles("PATIENT");
     }
 }

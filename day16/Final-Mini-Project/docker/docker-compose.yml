@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongo-app:
+    image: bharaths20/final-mini-project:0.0.1-SNAPSHOT
+    ports:
+      - "8083:8083"
+    environment:
+      spring.data.mongodb.uri: mongodb://mongo:27017/data
+    depends_on:
+      - mongo
+    networks:
+      - mongo-network
+  mongo:
+    image: mongo:3.4.7
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo-network
+networks:
+  mongo-network:
+    driver: bridge

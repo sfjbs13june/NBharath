@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bharath.hospital</groupId>
-	<artifactId>Final-Mini-Project</artifactId>
+	<artifactId>final-mini-project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Final-Mini-Project</name>
 	<description>Creating final mini project</description>
